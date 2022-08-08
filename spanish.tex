@@ -18,11 +18,10 @@
 \setlength{\parskip}{2.5mm}
 \setlength{\parindent}{0mm}
 
-% TÍTULO
+% TÍTULO DEL DOCUMENTO
 
 \title{Identificación Semiautomática de Glaciares en Imágenes Satelitales Usando Técnicas de Inteligencia Artificial, Una Revisión Sistemática}
-\author{William Condori Quispe}
-\date{}
+\author{William Condori Quispe} 
 
 % DOCUMENTO
 
@@ -51,7 +50,11 @@ Los glaciares son muy importantes para los ecosistemas de la Tierra, porque son 
 
 \section{Antecedentes y trabajos relacionados}
 
-\section{Metodología de la investigación}
+% =========================================================================
+% METODOLOGÍA DE LA INVESTIGACIÓN
+% =========================================================================
+
+\section{Research methodology}
 
 Esta revisión sistemática fue elaborada siguiendo la metodología PRISMA (Preferred Reporting Items for Systematic Review and Meta-Analysis), la cual establece un estandar para el proceso de identificación, selección, evaluación  y análisis del estado del arte.
 
@@ -66,9 +69,17 @@ comparar las diferentes metodologías propuestas, así como identificar las tend
     \caption{Criterio PICOC empleado para delimitar el alcance y el objetivo de la revisión sistemática}
 \end{figure}
 
-\subsection{Preguntas de investigación}
+\subsection{Research questions}
 
-La definición de las preguntas de investigación corresponde a la primera etapa del desarrollo de la metodología PRISMA. El objetivo principal de las preguntas de investigación es recopilar la información más destacada de cada estudio. En la presente revisión sistemática se han propuesto un total de 9 preguntas de investigación, cuyo detalle y motivación se muestran en la Tabla \ref{tab:research_questions}.
+Las preguntas de investigación tuvieron como objetivo recopilar la información más destacada de cada estudio. Para esta revisión sistemática se han planteado seis preguntas de investigación, relacionadas con los siguientes aspectos:
+
+\begin{itemize}
+    \item Conjunto de datos.
+    \item Tipos de glaciares y regiones de estudio.
+    \item Algoritmos empleados y métricas de evaluación.
+\end{itemize}
+
+En la Tabla \ref{tab:research_questions} se han enumerado las preguntas planteadas y su correspondiente motivación.
 
 \begin{table}[H]
     \centering
@@ -77,67 +88,88 @@ La definición de las preguntas de investigación corresponde a la primera etapa
     \label{tab:research_questions}
     \begin{tabularx}{\textwidth}{cXX}
         \hline
-        \textbf{N°} & \textbf{Pregunta de investigación}                                                             & \textbf{Motivación}                                                                                                                                                                                               \\ \hline
-        RQ1         & ¿Qué imágenes satelitales conformaron el conjunto de datos?                                    & Se buscó identificar el sensor de origen de las imágenes satelitales empleadas en la construcción del conjunto de datos utilizado en el trabajo de investigación.                                                 \\ \hline
-        RQ2         & ¿Cuántas imágenes satelitales/muestras se utilizaron en la construcción del conjunto de datos? & Se buscó identificar el tamaño del conjunto de datos utilizado en el estudio para analizar el comportamiento del algoritmo empleado y posibles estrategias de incremento de datos en caso el tamaño sea reducido. \\ \hline
-        RQ3         & ¿Qué tipo de glaciar se buscó identificar en el estudio?                                       & Esta pregunta permitió identificar la estrategia elegida por los autores para abordar la identificación de un tipo de glaciar específico considerando todas sus características inherentes.                       \\ \hline
-        RQ4         & ¿Cuál es la región geográfica de estudio?                                                      &                                                                                                                                                                                                                   \\ \hline
-        RQ5         & ¿Qué algoritmo de inteligencia artificial se empleó como base del modelo propuesto?            & Es la pregunta principal, ya que permitió identificar las tendencias de uso de los algoritmos de inteligencia artificial respecto al problema de visión por computador y los diferentes tipos de glaciares.       \\ \hline
-        RQ6         & ¿Cuáles fueron las métricas utilizadas para la evaluación del modelo?                          & Se buscó identificar las métricas más utilizadas en la evaluación de modelos basados en inteligencia artificial para la identificación semiautomática de glaciares en imágenes satelitales.                       \\ \hline
+        \textbf{No.} & \textbf{Research Questions}                                                                    & \textbf{Motivations}                                                                                                                                                                                              \\ \hline
+        RQ1          & ¿Qué imágenes satélites conformaron el conjunto de datos?                                      & Se buscó identificar el sensor de origen de las imágenes satelitales empleadas en la construcción del conjunto de datos utilizado en el trabajo de investigación.                                                 \\ \hline
+        RQ2          & ¿Cuántas imágenes satelitales/muestras se utilizaron en la construcción del conjunto de datos? & Se buscó identificar el tamaño del conjunto de datos utilizado en el estudio para analizar el comportamiento del algoritmo empleado y posibles estrategias de incremento de datos en caso el tamaño sea reducido. \\ \hline
+        RQ3          & ¿Qué tipo de glaciar se buscó identificar en el estudio?                                       & Esta pregunta permitió identificar la estrategia elegida por los autores para abordar la identificación de un tipo de glaciar específico considerando todas sus características inherentes.                       \\ \hline
+        RQ4          & ¿Cuál es la región geográfica de estudio?                                                      &                                                                                                                                                                                                                   \\ \hline
+        RQ5          & ¿Qué algoritmo de inteligencia artificial se empleó como base del modelo propuesto?            & Es la pregunta principal, ya que permitió identificar las tendencias de uso de los algoritmos de inteligencia artificial respecto al problema de visión por computador y los diferentes tipos de glaciares.       \\ \hline
+        RQ6          & ¿Cuáles fueron las métricas utilizadas para la evaluación del modelo?                          & Se buscó identificar las métricas más utilizadas en la evaluación de modelos basados en inteligencia artificial para la identificación semiautomática de glaciares en imágenes satelitales.                       \\ \hline
     \end{tabularx}
 \end{table}
 
-\subsection{Estrategia de búsqueda}
+\subsection{Source selection}
 
-Una vez definido el objetivo y las preguntas de investigación, se procedió a realizar una búsqueda en las principales bases de datos indexadas:  SCOPUS, WEB OF SCIENCE, IEEE Xplore, MDPI, cuya lista completa se muestra en la Tabla \ref{tab:databases}.
+Luego de la definición de las preguntas de investigación, se seleccionaron las bases de datos más relevantes para la búsqueda de estudios en base a revisiones sistemáticas existentes relacionadas a la percepción remota y la inteligencia artificial [], ya que estas fueron las que más se ajustaron a las necesidades del estudio.
 
 \begin{table}[H]
     \centering
-    \caption{Bases de datos utilizadas en la presente revisión sistemática}
+    \caption{Bases de datos seleccionadas para la búsqueda de estudios}
     \hspace{1cm}
-    \label{tab:databases}
+    \label{tab:selected_repositories}
     \begin{tabularx}{\textwidth}{XX}
         \hline
-        \textbf{IEEE Xplore}       & \url{https://ieeexplore.ieee.org} \\ \hline
-        \textbf{Web of Science}    & \url{https://isiknowledge.com}    \\ \hline
-        \textbf{MDPI}              & \url{https://mdpi.com}            \\ \hline
-        \textbf{Nature}            & \url{https://nature.com}          \\ \hline
-        \textbf{Science@Direct}    & \url{https://sciencedirect.com}   \\ \hline
-        \textbf{Scopus}            & \url{https://scopus.com}          \\ \hline
-        \textbf{Springer Link}     & \url{https://link.springer.com}   \\ \hline
-        \textbf{Taylor \& Francis} & \url{https://tandfonline.com}     \\ \hline
-        \textbf{arXiv}             & \url{https://arxiv.org}           \\ \hline
+        arXiv             & \url{https://arxiv.org}           \\ \hline
+        IEEE Xplore       & \url{https://ieeexplore.ieee.org} \\ \hline
+        MDPI              & \url{https://mdpi.com}            \\ \hline
+        Nature            & \url{https://nature.com}          \\ \hline
+        Science Direct    & \url{https://sciencedirect.com}   \\ \hline
+        Scopus            & \url{https://scopus.com}          \\ \hline
+        Springer Link     & \url{https://link.springer.com}   \\ \hline
+        Taylor \& Francis & \url{https://tandfonline.com}     \\ \hline
+        Web of Science    & \url{https://isiknowledge.com}    \\ \hline
     \end{tabularx}
 \end{table}
 
-La cadena de búsqueda utilizada en la consulta a las diferentes bases de datos fue: (“glacier” OR “glacial”) AND (“mapping” OR “delineation” OR “detection” OR “segmentation”) AND (“artificial intelligence” OR “deep learning” OR “machine learning”).
+\subsection{Search Strategy}
 
-Algunas bases de datos como Scopus, IEE Digital Library o Web of Science, soportan la consulta utilizando una cadena de búsqueda avanzada. .... \ref{tab:search_queries}.
+Se ha empleado una estrategia de búsqueda primaria para la recopilación de estudios relacionados al objetivo de la revisión sistemática.
+
+\textit{Primary search:} (“glacier” OR “glacial”) AND (“mapping” OR “delineation” OR “detection” OR “segmentation”) AND (“artificial intelligence” OR “machine learning” OR “deep learning”).
 
 \begin{table}[H]
     \centering
-    \caption{Bases de datos y sus cadenas de búsqueda correspondientes.}
+    \caption{Primary search strategy}
     \hspace{1cm}
-    \label{tab:search_queries}
-    \begin{tabularx}{\textwidth}{lX}
+    \label{tab:primary_search_strategy}
+    \begin{tabularx}{\textwidth}{XX}
         \hline
-        \textbf{Cadena de búsqueda} & (“glacier” OR “glacial”) AND (“mapping” OR “delineation” OR “detection” OR “segmentation”) AND (“artificial intelligence” OR “deep learning” OR “machine learning”)                                                                                \\ \hline
-        \textbf{IEEE Xplore}        & ((((((“Document Title”: glacier OR glacial) AND (“All Metadata”: *artificial intelligence OR *machine learning OR *deep learning) AND (“All Metadata”: mapping OR segmentation OR detection OR delineation))) )) )                                 \\ \hline
-        \textbf{Web of Science}     & TI=(glacier OR glacial) AND ALL=(“mapping” OR “segmentation” OR “detection” OR “delineation”) AND ALL=(“artificial intelligence” OR “machine learning” OR “deep learning”)                                                                         \\ \hline
-        \textbf{Nature}             & (“glacier” OR “glacial”) AND (“mapping” OR “delineation” OR “detection” OR “segmentation”) AND (“artificial intelligence” OR “deep learning” OR “machine learning”)                                                                                \\ \hline
-        \textbf{Scopus}             & TITLE (glacier OR glacial) AND ALL (“mapping” OR “segmentation” OR “detection” OR “delineation”) AND ALL (“artificial intelligence” OR “machine learning” OR “deep learning”)                                                                      \\ \hline
-        \textbf{Taylor \& Francis}  & [[Publication Title: glacier] OR [Publication Title: glacial]] AND [[All: mapping] OR [All: segmentation] OR [All: detection] OR [All: delineation]] AND [[All: “artificial intelligence”] OR [All: “machine learning”] OR [All: “deep learning”]] \\ \hline
-        \textbf{arXiv}              & title=glacier OR glacial; AND all=“artificial intelligence” OR “machine learning” OR “deep learning”; AND all=“mapping” OR “segmentation” OR “detection” OR “delineation”                                                                          \\ \hline
+        Derive search keywords                                       & Obtenidos desde las preguntas de investigación y el criterio PICOC.                                                                                                                                                                       \\ \hline
+        Identify synonyms and alternate spellings of search keywords & Por ejemplo, sinónimos o palabras relacionadas a la identificación de glaciares como: Mapping, Delineation, Detection o Segmentation. Así como palabras relacionadas con Artificial Intelligence, como: Machine Learning o Deep Learning. \\ \hline
+        Search keyword connectors                                    & 1) OR operator considers alternate synonyms and spellings. 2) AND operator links the major search keywords.                                                                                                                               \\ \hline
+        Construct sophisticated search strings                       & Construcción de cadenas de búsqueda específicas para cada repositorio que incluyan las palabras clave y los operadores correspondientes.                                                                                                  \\ \hline
     \end{tabularx}
 \end{table}
 
-Se encontraron un total de 431 artículos de investigación, de los cuales 120 presentaban resultados duplicados, los cuales fueron excluidos de la presente revisión.
+\begin{table}[H]
+    \centering
+    \caption{Repositories and their corresponding search strings}
+    \hspace{1cm}
+    \label{tab:repositories_and_their_corresponding_search_strings}
+    \begin{tabularx}{\textwidth}{lX}
+        \hline
+        IEEE Xplore       & ((((((“Document Title”: glacier OR glacial) AND (“All Metadata”: *artificial intelligence OR *machine learning OR *deep learning) AND (“All Metadata”: mapping OR segmentation OR detection OR delineation))) )) )                                 \\ \hline
+        Web of Science    & TI=(glacier OR glacial) AND ALL=(“mapping” OR “segmentation” OR “detection” OR “delineation”) AND ALL=(“artificial intelligence” OR “machine learning” OR “deep learning”)                                                                         \\ \hline
+        Scopus            & TITLE (glacier OR glacial) AND ALL (“mapping” OR “segmentation” OR “detection” OR “delineation”) AND ALL (“artificial intelligence” OR “machine learning” OR “deep learning”)                                                                      \\ \hline
+        Taylor \& Francis & [[Publication Title: glacier] OR [Publication Title: glacial]] AND [[All: mapping] OR [All: segmentation] OR [All: detection] OR [All: delineation]] AND [[All: “artificial intelligence”] OR [All: “machine learning”] OR [All: “deep learning”]] \\ \hline
+    \end{tabularx}
+\end{table}
 
-\subsection{Selección de estudios}
+La búsqueda de estudios se realizó empleando la cadena de búsqueda primaria y las cadenas de búsquedas especificas detalladas en la Tabla \ref{tab:repositories_and_their_corresponding_search_strings}.
+Todos los estudios encontrados han sido publicados antes del 10 de julio del 2022, fecha en la cual se realizó la consulta a las bases de datos.
+En total, se han encontrado $431$ estudios, de los cuales $123$ se identificaron como estudios duplicados y por lo tanto fueron excluidos del presente análisis.
 
-El proceso de selección de estudios se basa en la definición de los criterios de inclusión y exclusión, el proceso de selección y la evaluación de la calidad de los estudios seleccionados.
+\subsection{Study selection}
 
-\subsubsection{Criterios de inclusión y exclusión}
+El proceso de selección de estudios inicia con un total de $308$ estudios identificados.
+Estos estudios pueden contener información irrelevante para la revisión sistemática, por ello, se ha optado por un proceso de selección de dos pasos, los cuales incluyen una primera selección en base al análisis del título y el resumen del estudio, y finalmente un análisis más profundo de todo el contenido del estudio en base a criterios de inclusión y exclusión.
+
+\subsubsection{Selección inicial}
+
+Este proceso de selección corresponde a un análisis superficial de los estudios, en donde nse analizaron tanto el título como el resumen del documento.
+Este proceso identificó estudios no alineados al objetivo de la presente revisión sistemática, por lo tanto, fueron excluidos.
+
+\subsubsection{Selección en base a criterios de inclusión y exclusión}
 
 Este proceso permitió seleccionar solo los estudios relevantes y excluir los estudios irrelevantes de la presente revisión. La propuesta de los criterios, tanto de inclusión como de exclusión, fueron propuestos por el primer autor y han sido validados por los demás autores. Así mismo, …
 
@@ -165,10 +197,11 @@ En un inicio se planteó delimitar la búsqueda a trabajos publicados a partir d
     \caption{Proceso de búsqueda y selección}
 \end{figure}
 
+% =========================================================================
+% RESULTADOS Y ANÁLISIS
+% =========================================================================
+
 \section{Resultados y análisis}
-
-
-
 
 \begin{figure}[H]
     \centering
